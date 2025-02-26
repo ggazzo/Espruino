@@ -149,6 +149,13 @@ def get_pins():
   # Todo review as ESP32-S3 has there are 45 Physical GPIO pins Numbered 0->21 and 26->48
   # see https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf
   pins = pinutils.generate_pins(0,39)  # 40 General Purpose I/O Pins.
+
+  pinutils.findpin(pins, "PD1", True)["functions"]["ADC1_IN1"]=0;
+  pinutils.findpin(pins, "PD2", True)["functions"]["ADC1_IN2"]=0;
+  pinutils.findpin(pins, "PD4", True)["functions"]["ADC1_IN4"]=0;
+  pinutils.findpin(pins, "PD5", True)["functions"]["ADC1_IN5"]=0;
+  pinutils.findpin(pins, "PD6", True)["functions"]["ADC1_IN6"]=0;
+  pinutils.findpin(pins, "PD7", True)["functions"]["ADC1_IN7"]=0;
   
   # I2C added for issue #2589 - all decided by user (not defined in specs)
   pinutils.findpin(pins, "PD8", True)["functions"]["I2C1_SDA"]=0; 
